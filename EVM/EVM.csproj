@@ -172,6 +172,18 @@
     <Compile Include="Migrations\201605061739465_Add Artist.Designer.cs">
       <DependentUpon>201605061739465_Add Artist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605081555132_Add Sponsor.cs" />
+    <Compile Include="Migrations\201605081555132_Add Sponsor.Designer.cs">
+      <DependentUpon>201605081555132_Add Sponsor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605081557481_Add Outlet.cs" />
+    <Compile Include="Migrations\201605081557481_Add Outlet.Designer.cs">
+      <DependentUpon>201605081557481_Add Outlet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605081609246_Add Location.cs" />
+    <Compile Include="Migrations\201605081609246_Add Location.Designer.cs">
+      <DependentUpon>201605081609246_Add Location.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Artist.cs" />
@@ -260,6 +272,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605061739465_Add Artist.resx">
       <DependentUpon>201605061739465_Add Artist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605081555132_Add Sponsor.resx">
+      <DependentUpon>201605081555132_Add Sponsor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605081557481_Add Outlet.resx">
+      <DependentUpon>201605081557481_Add Outlet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605081609246_Add Location.resx">
+      <DependentUpon>201605081609246_Add Location.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
