@@ -158,8 +158,22 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BusinessLogic\Repo\EventRepo.cs" />
+    <Compile Include="BusinessLogic\Repo\OutletRepo.cs" />
+    <Compile Include="BusinessLogic\Repo\ArtistRepo.cs" />
+    <Compile Include="BusinessLogic\Interfaces\IEventRepo.cs" />
+    <Compile Include="BusinessLogic\Interfaces\IArtistRepo.cs" />
+    <Compile Include="BusinessLogic\Interfaces\ILocationRepo.cs" />
+    <Compile Include="BusinessLogic\Interfaces\IOutletRepo.cs" />
+    <Compile Include="BusinessLogic\Interfaces\ISponsorRepo.cs" />
+    <Compile Include="BusinessLogic\Interfaces\ITariffRepo.cs" />
+    <Compile Include="BusinessLogic\Repo\LocationRepo.cs" />
+    <Compile Include="BusinessLogic\Repo\TariffRepo.cs" />
+    <Compile Include="BusinessLogic\Repo\SponsorRepo.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArtistController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,6 +272,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Artist\" />
+    <Folder Include="Views\Location\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
