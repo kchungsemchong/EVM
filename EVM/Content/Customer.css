@@ -4,6 +4,10 @@
     background-size: cover;
 }
 
+body h2, h3,p{
+    color:#ffd800;
+}
+
 .navbar-twitch {
     position: fixed;
     top: 0px;
