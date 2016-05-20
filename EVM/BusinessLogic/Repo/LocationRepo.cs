@@ -6,7 +6,7 @@ using EVM.Models;
 
 namespace EVM.BusinessLogic
 {
-    public class LocationRepo
+    public class LocationRepo : ILocationRepo
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
 
@@ -22,15 +22,18 @@ namespace EVM.BusinessLogic
 
             return record;
         }
-        public Location Create()
+        public Location Create(Location item)
         {
-            return null;
+            db.Locations.Add(item);
+            db.SaveChanges();
+
+            return item;
         }
         public Location Edit()
         {
             return null;
         }
-        public bool Delete()
+        public bool Delete(int id)
         {
             return true;
         }

@@ -6,7 +6,7 @@ using EVM.Models;
 
 namespace EVM.BusinessLogic
 {
-    public class OutletRepo
+    public class OutletRepo : IOutletRepo
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
 
@@ -23,12 +23,15 @@ namespace EVM.BusinessLogic
 
             return record;
         }
-        public Outlet Create()
+        public Outlet Create(Outlet item)
         {
-            return null;
+            db.Outlets.Add(item);
+            db.SaveChanges();
+
+            return item;
         }
 
-        public Outlet Edit()
+        public Outlet Edit(int id)
         {
             return null;
         }
