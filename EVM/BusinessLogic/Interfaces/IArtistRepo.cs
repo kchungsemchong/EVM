@@ -10,8 +10,8 @@ namespace EVM.BusinessLogic
     {
         IEnumerable<Artist> Retrieve();
         Artist Get(int id);
-        Artist Create();
-        Artist Edit();
+        Artist Create(Artist item);
+        Artist Edit(int id);
         bool Delete(int id);
     }
 }

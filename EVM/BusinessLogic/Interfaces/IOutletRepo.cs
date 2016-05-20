@@ -11,8 +11,8 @@ namespace EVM.BusinessLogic
     {
         IEnumerable<Outlet> Retrieve();
         Outlet Get(int id);
-        Outlet Create();
-        Outlet Edit();
+        Outlet Create(Outlet item);
+        Outlet Edit(int id);
         bool Delete(int id);
     }
 }

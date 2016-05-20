@@ -11,7 +11,7 @@ namespace EVM.BusinessLogic
     {
         IEnumerable<Location> Retrieve();
         Location Get(int id);
-        Location Create();
+        Location Create(Location item);
         Location Edit();
         bool Delete(int id);
     }
