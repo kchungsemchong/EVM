@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EVM.BusinessLogic;
+using EVM.Models;
 
 namespace EVM.Controllers
 {
@@ -22,11 +23,15 @@ namespace EVM.Controllers
         {
             try
             {
-                var records = _repo.Retrieve();
-                if (records == null)
-                    return RedirectToAction("Error404", "Home");
+                if (User.IsInRole("Admin"))
+                {
+                    var records = _repo.Retrieve();
+                    if (records == null)
+                        return RedirectToAction("Error404", "Home");
 
-                return View(records);
+                    return View(records);
+                }
+                return RedirectToAction("Error404", "Home");
             }
             catch (Exception ex)
             {
@@ -39,11 +44,16 @@ namespace EVM.Controllers
         {
             try
             {
-                var records = _repo.Get(id);
-                if (records == null)
-                    return RedirectToAction("Error404", "Home");
+                if (User.IsInRole("Admin"))
+                {
+                    var records = _repo.Get(id);
+                    if (records == null)
+                        return RedirectToAction("Error404", "Home");
 
-                return View(records);
+                    return View(records);
+                }
+
+                return RedirectToAction("Error404", "Home");
             }
             catch (Exception ex)
             {
@@ -59,17 +69,27 @@ namespace EVM.Controllers
 
         // POST: Location/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Location item)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (User.IsInRole("Admin"))
+                {
+                    if (String.IsNullOrEmpty(item.Name))
+                        return RedirectToAction("Error404", "Home");
 
-                return RedirectToAction("Index");
+                    var record = _repo.Create(item);
+                    if (record.LocationId < 1)
+                        return RedirectToAction("Error404", "Home");
+
+                    return RedirectToAction("Index", "Location");
+                }
+
+                return RedirectToAction("Error404", "Home");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, ex.ToString());
             }
         }
 

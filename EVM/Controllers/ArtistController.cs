@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EVM.BusinessLogic;
+using EVM.Models;
 
 namespace EVM.Controllers
 {
@@ -59,17 +60,22 @@ namespace EVM.Controllers
 
         // POST: Artist/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Artist item)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (String.IsNullOrEmpty(item.Name))
+                    return RedirectToAction("Error404", "Home");
 
-                return RedirectToAction("Index");
+                var record = _repo.Create(item);
+                if (record.ArtistId < 1)
+                    return RedirectToAction("Error404", "Home");
+
+                return RedirectToAction("Index", "Artist");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, ex.ToString());
             }
         }
 
